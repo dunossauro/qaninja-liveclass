@@ -10,4 +10,4 @@ Link da live - https://www.youtube.com/watch?v=QuvT552l3Ys
 
 [selenium](./selenium_exemplos) - Básico sobre selenium/page_objects
 
-[Slides](./QAninja live class.pdf)
+[Slides](./QAninja\ live\ class.pdf)
