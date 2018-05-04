@@ -1,5 +1,14 @@
-def soma(x, y):
+"""caracteristicas gerais."""
+
+a = 7
+b = 'eduardo'
+
+
+def func(x, y):
     return x + y
+
+
+print(func(7, 7))
 
 
 class Pessoa:
@@ -8,4 +17,4 @@ class Pessoa:
         self.idade = idade
 
     def __repr__(self):
-        Pessoa(f'nome={self.nome}, idade={self.idade}')
+        return f'Pessoa(nome="{self.nome}", idade={self.idade})'

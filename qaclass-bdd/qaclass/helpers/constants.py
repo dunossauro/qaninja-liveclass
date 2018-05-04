@@ -7,4 +7,4 @@ exe_path = r'C:\\hello.exe'
 
 PATH = getcwd()
 LOG_FILE_DIR = join(PATH, "log")
-LOGGER_CONFIG = join(PATH, "qaninja", "data", "logging.json")
+LOGGER_CONFIG = join(PATH, "qaclass", "data", "logging.json")

@@ -1,11 +1,12 @@
 """Hooks file."""
 from behave.tag_matcher import ActiveTagMatcher
-from ipdb import post_mortem
+from ipdb import spost_mortem
 from json import load
 from os import makedirs
 from os.path import isdir
 from logging import getLogger, config
-from qaninja.helpers import constants
+from selenium import webdriver
+from qaclass.helpers import constants
 
 active_tag_value_provider = {
     "config_0": False
@@ -19,6 +20,8 @@ def before_all(context):
     context.config_0 = userdata.get('config_0', 'False')
     logger_type = userdata.get('logger', 'file_logger')
     context.logger = setup_logger(logger_type)
+    context.logger.info('Olá, começamos bem')
+    context.browser = webdriver.Firefox()
 
 
 def before_feature(context, feature):
@@ -36,7 +39,7 @@ def before_tag(context, tag):
 
 def after_step(context, step):
     if context.config.userdata.get('debug') and step.status == "failed":
-        post_mortem(step.exc_traceback)
+        spost_mortem(step.exc_traceback)
 
 
 def after_tag(context, tag):
@@ -52,7 +55,7 @@ def after_feature(context, feature):
 
 
 def after_all(context):
-    pass
+    context.browser.quit()
 
 
 def setup_logger(logger_name):
